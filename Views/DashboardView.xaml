@@ -1,0 +1,33 @@
+<UserControl x:Class="KickBlastStableLight.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <UniformGrid Columns="4" Margin="0,0,0,14">
+            <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,10,0"><StackPanel><TextBlock Text="Athletes"/><TextBlock x:Name="TxtAthletes" FontSize="24" FontWeight="Bold"/></StackPanel></Border>
+            <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,10,0"><StackPanel><TextBlock Text="Calculations"/><TextBlock x:Name="TxtCalcs" FontSize="24" FontWeight="Bold"/></StackPanel></Border>
+            <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,10,0"><StackPanel><TextBlock Text="Revenue"/><TextBlock x:Name="TxtRevenue" FontSize="24" FontWeight="Bold"/></StackPanel></Border>
+            <Border Style="{StaticResource CardBorderStyle}"><StackPanel><TextBlock Text="Next Competition"/><TextBlock x:Name="TxtNextComp" FontSize="24" FontWeight="Bold"/></StackPanel></Border>
+        </UniformGrid>
+
+        <Border Grid.Row="1" Style="{StaticResource CardBorderStyle}">
+            <StackPanel>
+                <TextBlock Text="Recent Calculations" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                <DataGrid x:Name="GridRecent" AutoGenerateColumns="False" IsReadOnly="True" Height="400">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Athlete" Binding="{Binding AthleteName}"/>
+                        <DataGridTextColumn Header="Plan" Binding="{Binding Plan}"/>
+                        <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
+                        <DataGridTextColumn Header="Month" Binding="{Binding MonthName}"/>
+                        <DataGridTextColumn Header="Created" Binding="{Binding CreatedAt}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

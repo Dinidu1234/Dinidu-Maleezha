@@ -1,0 +1,49 @@
+<Window x:Class="KickBlastStableLight.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="KickBlast Stable Light"
+        Height="780" Width="1260"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BrushAppBackground}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="72"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Background="White" BorderBrush="{StaticResource BrushCardBorder}" BorderThickness="0,0,1,0">
+            <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="0,12,0,12">
+                <TextBlock Text="🥊" FontSize="24" HorizontalAlignment="Center" Margin="0,6"/>
+                <Button x:Name="BtnDash" Style="{StaticResource IconButtonStyle}" ToolTip="Dashboard" Content="🏠" Click="BtnDash_Click"/>
+                <Button x:Name="BtnAthletes" Style="{StaticResource IconButtonStyle}" ToolTip="Athletes" Content="👥" Click="BtnAthletes_Click"/>
+                <Button x:Name="BtnCalc" Style="{StaticResource IconButtonStyle}" ToolTip="Calculator" Content="🧮" Click="BtnCalc_Click"/>
+                <Button x:Name="BtnHistory" Style="{StaticResource IconButtonStyle}" ToolTip="History" Content="🗂" Click="BtnHistory_Click"/>
+                <Button x:Name="BtnSettings" Style="{StaticResource IconButtonStyle}" ToolTip="Settings" Content="⚙" Click="BtnSettings_Click"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="68"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Background="White" BorderBrush="{StaticResource BrushCardBorder}" BorderThickness="0,0,0,1" Padding="18,12">
+                <DockPanel LastChildFill="False">
+                    <TextBlock x:Name="TxtPageTitle" Text="Dashboard" FontSize="24" FontWeight="SemiBold" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" VerticalAlignment="Center">
+                        <TextBox x:Name="TxtGlobalSearch" Style="{StaticResource RoundedTextBox}" Width="250" Height="36" Margin="0,0,10,0" VerticalContentAlignment="Center" TextChanged="TxtGlobalSearch_TextChanged"/>
+                        <Border Background="#EEF2FF" CornerRadius="18" Padding="10,5" Margin="0,0,10,0">
+                            <TextBlock x:Name="TxtUserChip" Text="dinidu" Foreground="#3730A3"/>
+                        </Border>
+                        <Button x:Name="BtnLogout" Content="Logout" Style="{StaticResource SecondaryButtonStyle}" Click="BtnLogout_Click"/>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+
+            <ContentControl x:Name="MainContent" Grid.Row="1" Margin="14"/>
+        </Grid>
+    </Grid>
+</Window>
